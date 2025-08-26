@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Waste Photo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #a8ffb0, #00b050);
+    }
+
+    .scan-container {
+      text-align: center;
+      width: 300px;
+    }
+
+    /* Upload Box */
+    .upload-box {
+      border: 3px dashed #004d26;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 20px;
+      position: relative;
+      background: rgba(255, 255, 255, 0.3);
+    }
+
+    .upload-box img {
+      width: 80px;
+      margin-bottom: 10px;
+      opacity: 0.7;
+    }
+
+    .upload-box input {
+      display: none;
+    }
+
+    .upload-label {
+      display: inline-block;
+      background: #004d26;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Quote */
+    .quote {
+      margin-top: 25px;
+      font-size: 1rem;
+      font-style: italic;
+      color: #000;
+    }
+
+    /* Preview */
+    #preview {
+      margin-top: 15px;
+      max-width: 100%;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="scan-container">
+    <div class="upload-box">
+      <img src="https://cdn-icons-png.flaticon.com/512/709/709496.png" alt="Upload Icon">
+      <br>
+      <label for="fileUpload" class="upload-label">Upload photo</label>
+      <input type="file" id="fileUpload" accept="image/*" onchange="previewImage(event)">
+      <img id="preview" alt="Preview">
+    </div>
+
+    <p class="quote">“Small scans today, big changes tomorrow.”</p>
+  </div>
+
+  <script>
+    function previewImage(event) {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const preview = document.getElementById("preview");
+          preview.src = e.target.result;
+          preview.style.display = "block";
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+</body>
+</html>

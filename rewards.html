@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Points</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #a8ffb0, #00b050);
+    }
+
+    .points-container {
+      text-align: center;
+      width: 300px;
+      position: relative;
+      color: #000;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+    }
+
+    /* Circular points */
+    .circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 8px solid #004d26;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px;
+      position: relative;
+    }
+
+    .circle::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: -15px;
+      right: -15px;
+      bottom: -15px;
+      border: 3px dashed #004d26;
+      border-radius: 50%;
+      animation: spin 10s linear infinite;
+    }
+
+    @keyframes spin {
+      100% { transform: rotate(360deg); }
+    }
+
+    .points-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .points-value span {
+      font-size: 1rem;
+      display: block;
+      margin-top: 5px;
+    }
+
+    /* Stats */
+    .stats {
+      display: flex;
+      justify-content: space-between;
+      margin: 20px 0;
+      font-size: 0.9rem;
+    }
+
+    .stats div {
+      text-align: center;
+    }
+
+    /* Button */
+    .btn {
+      background: #004d26;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 8px;
+      font-size: 1rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #006633;
+    }
+  </style>
+</head>
+<body>
+  <div class="points-container">
+    <h2>Green Points</h2>
+
+    <div class="circle">
+      <div class="points-value" id="points">
+        0 <span>points</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div>
+        <strong>320</strong><br>Points earned
+      </div>
+      <div>
+        <strong>3</strong><br>Rewards Redeemed
+      </div>
+    </div>
+
+    <a href="#" class="btn">View Rewards</a>
+  </div>
+
+  <script>
+    // Animate counter
+    let counter = 0;
+    let finalPoints = 1250;
+    let speed = 20;
+    let pointsElement = document.getElementById("points");
+
+    function updateCounter() {
+      if (counter < finalPoints) {
+        counter += 10;
+        pointsElement.innerHTML = counter + "<span>points</span>";
+        setTimeout(updateCounter, speed);
+      } else {
+        pointsElement.innerHTML = finalPoints + "<span>points</span>";
+      }
+    }
+    updateCounter();
+  </script>
+</body>
+</html>

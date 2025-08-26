@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Smart Waste Management</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Login Container */
+    .login-container {
+      background: #00b050; /* green background */
+      padding: 40px 20px;
+      border-radius: 20px 20px 0 0;
+      text-align: center;
+      width: 320px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .login-container h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 25px;
+    }
+
+    /* Input Fields */
+    .input-group {
+      display: flex;
+      align-items: center;
+      background: #f2f2f2;
+      margin: 15px 0;
+      padding: 12px;
+      border-radius: 25px;
+    }
+
+    .input-group .icon {
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .input-group input {
+      border: none;
+      outline: none;
+      flex: 1;
+      background: transparent;
+      font-size: 1rem;
+    }
+
+    /* Forgot Password */
+    .forgot {
+      display: block;
+      text-align: left;
+      margin: 10px 5px;
+      font-size: 0.9rem;
+      color: #000;
+      text-decoration: none;
+    }
+
+    /* Login Button */
+    button {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      background: #004d26;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #003d1f;
+    }
+
+    /* Sign Up */
+    .signup-text {
+      color: #000;
+      font-size: 0.9rem;
+    }
+
+    .signup-text a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h1>LOG IN</h1>
+
+    <!-- Email -->
+    <div class="input-group">
+      <span class="icon">📧</span>
+      <input type="email" id="email" placeholder="E-mail">
+    </div>
+
+    <!-- Password -->
+    <div class="input-group">
+      <span class="icon">🔒</span>
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <a href="#" class="forgot">Forgot Password ?</a>
+
+    <!-- Login Button -->
+    <button onclick="login()">Log In</button>
+
+    <p class="signup-text">
+      Already have an account or need to register?<br>
+      <a href="#">Sign Up</a>
+    </p>
+  </div>
+
+  <script>
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (email === "" || password === "") {
+        alert("Please enter both email and password!");
+        return;
+      }
+
+      // Dummy validation (replace with backend API later)
+      if (email === "user@example.com" && password === "12345") {
+        alert("Login Successful 🎉");
+        // Redirect to home page
+        window.location.href = "home.html";
+      } else {
+        alert("Invalid credentials ❌");
+      }
+    }
+  </script>
+</body>
+</html>

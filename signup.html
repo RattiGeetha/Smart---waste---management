@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Smart Waste Management</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    /* Sign Up Container */
+    .signup-container {
+      background: #00b050;
+      padding: 30px 20px;
+      border-radius: 15px;
+      text-align: center;
+      width: 340px;
+    }
+
+    .signup-container h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    /* Input Fields */
+    .signup-container input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    /* Terms text */
+    .terms {
+      font-size: 0.8rem;
+      color: #000;
+      margin: 10px 0 15px;
+    }
+
+    .terms a {
+      color: blue;
+      text-decoration: underline;
+    }
+
+    /* Buttons */
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .button-group button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back-btn {
+      background: #fff;
+      color: #000;
+    }
+
+    .back-btn:hover {
+      background: #ddd;
+    }
+
+    .signup-btn {
+      background: #004d26;
+      color: #fff;
+    }
+
+    .signup-btn:hover {
+      background: #003d1f;
+    }
+
+    /* Already account text */
+    .already {
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    .already a {
+      color: #000;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h1>Sign Up</h1>
+
+    <!-- Input Fields -->
+    <input type="email" id="email" placeholder="E-mail">
+    <input type="password" id="password" placeholder="Password">
+    <input type="text" id="firstName" placeholder="First Name">
+    <input type="text" id="lastName" placeholder="Second Name">
+
+    <p class="terms">
+      By clicking Sign Up below, you agree to the website 
+      <a href="#">terms of use</a>, and <a href="#">privacy policy</a>.
+    </p>
+
+    <!-- Buttons -->
+    <div class="button-group">
+      <button class="back-btn" onclick="goBack()">Back</button>
+      <button class="signup-btn" onclick="signup()">Sign Up</button>
+    </div>
+
+    <p class="already">
+      Already have an account? <a href="login.html">Log In</a>
+    </p>
+  </div>
+
+  <script>
+    function goBack() {
+      // redirect to login page (replace with actual page)
+      window.location.href = "login.html";
+    }
+
+    function signup() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+      const firstName = document.getElementById("firstName").value.trim();
+      const lastName = document.getElementById("lastName").value.trim();
+
+      if (!email || !password || !firstName || !lastName) {
+        alert("Please fill all fields!");
+        return;
+      }
+
+      // Dummy success
+      alert("Account Created Successfully 🎉 Welcome, " + firstName + "!");
+      // redirect to home page
+      window.location.href = "home.html";
+    }
+  </script>
+</body>
+</html>

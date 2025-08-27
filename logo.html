@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Waste Management — Splash</title>
+
+  <!-- Embedded styles (single file) -->
+  <style>
+    :root{
+      --bg: #f4f9f4;
+      --accent: #007f3f;
+      --muted: #2f6b3a;
+      --glass: rgba(255,255,255,0.6);
+      --card-shadow: 0 8px 30px rgba(10,30,10,0.08);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+
+    html,body{height:100%}
+
+    body{
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg), #eaf4ea 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+      color:var(--muted);
+    }
+
+    /* Centered splash card */
+    .splash-container{
+      width:100%;
+      max-width:540px;
+      text-align:center;
+      background: linear-gradient(180deg, rgba(255,255,255,0.8), var(--glass));
+      border-radius:var(--radius);
+      padding:36px 28px;
+      box-shadow:var(--card-shadow);
+      backdrop-filter: blur(6px);
+      border:1px solid rgba(0,0,0,0.04);
+    }
+
+    .logo{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      margin-bottom:18px;
+    }
+
+    /* SVG sizing */
+    .logo svg{
+      width:110px;
+      height:auto;
+      display:block;
+    }
+
+    .title{
+      font-size:1.25rem;
+      letter-spacing:2px;
+      color:var(--accent);
+      font-weight:700;
+      margin-bottom:8px;
+    }
+
+    .subtitle{
+      font-size:0.92rem;
+      color:#225c2d;
+      margin-bottom:6px;
+      opacity:0.95;
+    }
+
+    .tagline{
+      font-size:1.6rem;
+      font-weight:800;
+      line-height:1.1;
+      color:var(--muted);
+      margin-top:8px;
+      letter-spacing:1px;
+    }
+
+    .tagline .small{
+      display:block;
+      font-size:0.7rem;
+      font-weight:600;
+      color:var(--accent);
+      letter-spacing:1.5px;
+      margin-top:8px;
+    }
+
+    /* small screen adjustments */
+    @media (max-width:420px){
+      .splash-container{padding:22px}
+      .logo svg{width:86px}
+      .tagline{font-size:1.3rem}
+      .title{font-size:1.05rem}
+    }
+  </style>
+</head>
+<body>
+  <main class="splash-container" role="main" aria-labelledby="app-title">
+    <div class="logo" aria-hidden="false">
+      <!-- Inline SVG: recyclable arrows circling a globe -->
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+        <!-- Outer circle background -->
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stop-color="#7ed56f"/>
+            <stop offset="1" stop-color="#0b7a3d"/>
+          </linearGradient>
+        </defs>
+
+        <circle cx="80" cy="80" r="74" fill="url(#g1)" opacity="0.12"/>
+        <!-- Globe: simple continents -->
+        <g transform="translate(12,10) scale(0.9)">
+          <circle cx="80" cy="80" r="56" fill="#dff7df" stroke="#bfeac5" stroke-width="2"/>
+          <!-- stylized continents -->
+          <path d="M66 58c8-6 28-8 36 0 6 6 0 18-8 22-10 6-26-6-36-8-4-1-6-8 8-14z" fill="#88c08a"/>
+          <path d="M46 96c-2-10 6-22 18-24 12-2 24 6 22 16-2 12-20 24-32 20-8-2-10-6-8-12z" fill="#7fb97b"/>
+        </g>
+
+        <!-- Recycle arrows (around globe) -->
+        <g fill="#007f3f">
+          <path d="M38 36c6-6 16-8 24-6l-4 6 20 12-6 8-20-12-4 6c-10-4-14-12-10-24z"/>
+          <path d="M122 124c-6 6-16 8-24 6l4-6-20-12 6-8 20 12 4-6c10 4 14 12 10 24z"/>
+        </g>
+      </svg>
+    </div>
+
+    <h1 id="app-title" class="title">SMART WASTE MANAGEMENT</h1>
+    <p class="subtitle" aria-hidden="true">A citizen-level solution for segregation & recycling</p>
+
+    <div class="tagline" role="heading" aria-level="2">
+      TRASH<br>TO<br>TREASURE
+      <span class="small">Reduce • Reuse • Recycle</span>
+    </div>
+  </main>
+</body>
+</html>
